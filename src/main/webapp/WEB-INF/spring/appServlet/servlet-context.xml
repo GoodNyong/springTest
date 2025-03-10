@@ -19,13 +19,13 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-		<beans:property name="order" value="2" />
+		<!-- <beans:property name="order" value="2" /> -->
 	</beans:bean>
 	
 	<context:component-scan base-package="com.spring.springTest" />
 	
 	<!-- Tiles 환경설정 -->
-	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<!-- <beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<beans:property name="order" value="1" />
 	</beans:bean>
@@ -36,6 +36,6 @@
 			  <beans:value>/WEB-INF/spring/appServlet/tiles-def.xml</beans:value>
 			</beans:list>
 		</beans:property>
-	</beans:bean>
+	</beans:bean> -->
 	
 </beans:beans>
