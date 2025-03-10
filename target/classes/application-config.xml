@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 각 클래스에 어노테이션을 거는 것과 동일한 효과 -->
+	<bean id="helloService" class="com.spring.springTest.service.HelloService"/>
+	<bean id="helloController" class="com.spring.springTest.controller.HelloController">
+		<constructor-arg ref="helloService" />
+	</bean>
+	
+</beans>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -65,21 +66,26 @@ public class T0307Controller {
 		return "/0307/test04";
 	}
 
+	@Autowired
+	private BmiService bmiService;
+
 	@RequestMapping(value = "/test05", method = RequestMethod.GET)
-	public String test05Get(Model model, BmiService bmiService) {
+	public String test05Get(Model model) {
 		List<BmiVo> bmiList = bmiService.getBmiList();
+		for (BmiVo vo : bmiList) {
+			vo.setBmi(vo.calculateBmi()); // BMI 값 설정
+			vo.setResult(vo.getBmiCategory()); // 결과 값 설정
+		}
 		model.addAttribute("bmiList", bmiList);
 		return "/0307/test05";
 	}
-	
+
 	@RequestMapping(value = "/test05", method = RequestMethod.POST)
-	public String test05Get(@RequestParam("name") String name,
-            @RequestParam("height") double height,
-            @RequestParam("weight") double weight,
-            BmiService bmiService) {
-		List<BmiVo> bmiList = bmiService.getBmiList();
+	public String test05Post(@RequestParam("name") String name,
+			@RequestParam("height") double height,
+			@RequestParam("weight") double weight) {
 		bmiService.addBmiData(name, height, weight);
-        return "redirect:/test05";
+		return "redirect:/0307/test05";
 	}
 
 }

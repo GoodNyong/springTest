@@ -19,15 +19,23 @@
 			<table class="table table-hover">
 		        <thead class="table-secondary">
 			        <tr>
+			            <th>번호</th>
 			            <th>성명</th>
-			            <th>합계</th>
+			            <th>국어</th>
+			            <th>영어</th>
+			            <th>수학</th>
+			            <th>총점</th>
 			            <th>평균</th>
 			            <th>학점</th>
 			        </tr>
 		        </thead>
-		        <c:forEach var="vo" items="${gradeCalcList}">
+		        <c:forEach var="vo" varStatus="st" items="${gradeCalcList}">
 					<tr>
+					    <td>${st.count}</td>
 					    <td>${vo.name}</td>
+					    <td>${vo.kor}</td>
+					    <td>${vo.eng}</td>
+					    <td>${vo.math}</td>
 					    <td>${vo.tot}</td>
 					    <td><fmt:formatNumber value="${vo.avg}" pattern="0.0"/></td>
 					    <td>${vo.grade}</td>

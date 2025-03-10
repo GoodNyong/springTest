@@ -43,19 +43,31 @@
 		</c:if>
 	</div>	
 	<hr/>
-	 <h3>새로운 BMI 추가</h3>
-    <form method="post">
-        <label>이름: </label>
-        <input type="text" name="name" required><br><br>
-        
-        <label>키 (cm): </label>
-        <input type="text" name="height" required><br><br>
-        
-        <label>체중 (kg): </label>
-        <input type="text" name="weight" required><br><br>
-
-        <input type="submit" value="추가">
-    </form>
+	<h3 class="text-center">새로운 BMI 추가</h3>
+	<div class="row justify-content-center">
+	    <div class="col-md-6">
+	        <form method="post" class="p-4 border rounded bg-light shadow-sm">
+	            <div class="mb-3">
+	                <label for="name" class="form-label">이름</label>
+	                <input type="text" class="form-control" id="name" name="name" value="이기자" placeholder="이름 입력" required>
+	            </div>
+	            
+	            <div class="mb-3">
+	                <label for="height" class="form-label">키 (cm)</label>
+	                <input type="text" class="form-control" id="height" name="height" value="180" placeholder="키 입력" required>
+	            </div>
+	            
+	            <div class="mb-3">
+	                <label for="weight" class="form-label">체중 (kg)</label>
+	                <input type="text" class="form-control" id="weight" name="weight" value="65" placeholder="체중 입력" required>
+	            </div>
+	
+	            <div class="d-grid">
+	                <button type="submit" class="btn btn-primary">BMI 추가</button>
+	            </div>
+	        </form>
+	    </div>
+	</div>
 	<hr/>
 	<div><a href="${ctp }/0307/xmlMenu" class="btn btn-warning btn-sm">돌아가기</a></div>
 </div>

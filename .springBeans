@@ -8,6 +8,10 @@
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>src/main/resources/xml/grade.xml</config>
+		<config>src/main/resources/xml/webSite.xml</config>
+		<config>src/main/resources/xml/webSite2.xml</config>
+		<config>src/main/resources/application-config.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/tiles-def.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
