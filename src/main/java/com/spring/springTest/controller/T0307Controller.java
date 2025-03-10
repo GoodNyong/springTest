@@ -10,8 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring.springTest.service.BmiService;
 import com.spring.springTest.service.GradeService;
+import com.spring.springTest.vo.BmiVo;
 import com.spring.springTest.vo.GradeVo;
 
 @Controller
@@ -50,20 +53,33 @@ public class T0307Controller {
 		// 서비스 객체 생성
 		GradeService service = new GradeService();
 		// 모든 객체에게 계산을 수행
-		for (GradeVo vo : vos) service.calc(vo);
+		for (GradeVo vo : vos)
+			service.calc(vo);
 		// 모델에 담아 전달
 		model.addAttribute("gradeCalcList", vos);
 		return "0307/test03";
 	}
-	
+
 	@RequestMapping(value = "/test04", method = RequestMethod.GET)
 	public String test04Get() {
 		return "/0307/test04";
 	}
-	
+
 	@RequestMapping(value = "/test05", method = RequestMethod.GET)
-	public String test05Get() {
+	public String test05Get(Model model, BmiService bmiService) {
+		List<BmiVo> bmiList = bmiService.getBmiList();
+		model.addAttribute("bmiList", bmiList);
 		return "/0307/test05";
+	}
+	
+	@RequestMapping(value = "/test05", method = RequestMethod.POST)
+	public String test05Get(@RequestParam("name") String name,
+            @RequestParam("height") double height,
+            @RequestParam("weight") double weight,
+            BmiService bmiService) {
+		List<BmiVo> bmiList = bmiService.getBmiList();
+		bmiService.addBmiData(name, height, weight);
+        return "redirect:/test05";
 	}
 
 }

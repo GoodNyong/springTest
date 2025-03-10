@@ -21,5 +21,15 @@
 		<property name="eng" value="70"/>
 		<property name="math" value="100"/>
 	</bean>
+	<bean id="bmiUser1" class="com.spring.springTest.vo.BmiVo">
+        <property name="name" value="홍길동"/>
+        <property name="height" value="175"/>
+        <property name="weight" value="70"/>
+    </bean>
+    <bean id="bmiUser2" class="com.spring.springTest.vo.BmiVo">
+        <property name="name" value="김철수"/>
+        <property name="height" value="168"/>
+        <property name="weight" value="80"/>
+    </bean>
 
 </beans>
